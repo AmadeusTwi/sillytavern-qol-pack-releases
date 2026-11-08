@@ -17,6 +17,8 @@ Run the installer on the computer hosting SillyTavern. Requires Node.js 20.12+ a
 
 Select OpenRouter and an active saved key. A key icon appears beside **API Connections**. It opens a compact budget widget. The interface follows SillyTavern’s language: Russian or English as the fallback.
 
+<img width="614" height="468" alt="CleanShot 2026-11-09 at 02 47 17@2x" src="https://github.com/user-attachments/assets/30e6dcca-eb1e-4b27-ad20-10558d42ae20" />
+
 ## Updates
 
 The widget checks GitHub Releases automatically, with a six-hour cache. An indicator on the key means an update is available.
