@@ -8,7 +8,7 @@ Small quality-of-life improvements for SillyTavern. The first module shows the r
 
 ## Install
 
-1. Download the ZIP and extract it anywhere, such as Downloads.
+1. Download **SillyTavern-QoL-Pack-&lt;version&gt;.zip** and extract it anywhere, such as Downloads.
 2. Open `Install-Windows.cmd`, `Install-macOS.command`, or run `Install-Linux.sh` in a terminal.
 3. Choose your SillyTavern folder and confirm installation.
 4. Restart SillyTavern and reload the browser page.
@@ -24,6 +24,8 @@ Select OpenRouter and an active saved key. A key icon appears beside **API Conne
 The widget checks GitHub Releases automatically, with a six-hour cache. An indicator on the key means an update is available.
 
 Open **About & updates → Install v…**, then restart SillyTavern and reload the page. Both the UI and server plugin update together. The same section offers a rollback to the previous installation. Installation and rollback require a SillyTavern administrator.
+
+If you installed version 0.4.0, run the latest installer once to switch to the new archive name. From 0.4.1 onward, updates are installed from the widget.
 
 ## Repository
 
