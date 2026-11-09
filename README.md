@@ -27,7 +27,7 @@ Tap or click the icon group to reveal the readable model name from the **API Con
 
 Each reply and selected swipe uses its own recorded model metadata. Changing your current provider or model does not relabel old replies. If the model is missing from the loaded catalog, a readable form of its saved identifier is used. If no model was recorded, the label says so.
 
-The module respects **User Settings → Model Icons** and document mode. It does not change chat data or make additional OpenRouter requests. Mobile layout and taps were checked in browser emulation; touch feel still needs a check on a physical phone.
+The module respects **User Settings → Model Icons** and document mode. It does not change chat data or make additional OpenRouter requests.
 
 ## Updates
 
@@ -40,5 +40,3 @@ Versions 0.4.1 and 0.4.2 can update to 0.4.3 directly from the widget. The compa
 ## Repository
 
 This public repository hosts installable releases and user documentation. The development repository is currently private. Release archives contain the runtime JavaScript, bundled dependencies, license and third-party notices.
-
-Live installation is verified on macOS with SillyTavern 1.19. Windows and Linux launchers have not yet been tested on those systems.
