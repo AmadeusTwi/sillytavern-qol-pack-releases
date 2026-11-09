@@ -10,10 +10,12 @@
 
 1. Скачайте **SillyTavern-QoL-Pack-&lt;версия&gt;.zip** и распакуйте в любую папку, например «Загрузки».
 2. Откройте `Install-Windows.cmd`, `Install-macOS.command` или запустите `Install-Linux.sh` в терминале.
-3. Выберите папку установленной SillyTavern и подтвердите установку.
+3. Выберите язык, затем папку установленной SillyTavern и подтвердите установку.
 4. Перезапустите SillyTavern и обновите страницу в браузере.
 
 Запускайте установщик на компьютере или телефоне, где установлена сама SillyTavern. Нужны Node.js 20.12+ и SillyTavern 1.19+. Для Android используйте инструкцию для Termux ниже.
+
+На всех платформах мастер начинается с **Language / Язык**: English или Русский. По умолчанию выбран язык системной локали, для остальных языков — английский. Этот выбор относится только к установщику. Чтобы пропустить вопрос, из распакованной папки выполните `node resources/bin/install.mjs --lang ru` или `--lang en`.
 
 Выберите OpenRouter и сохранённый активный ключ. Рядом с **API Connections** появится ключик, который открывает компактный виджет остатка лимита. Язык виджета зависит от языка SillyTavern: русский при выбранном русском, английский — во всех остальных случаях.
 
@@ -21,11 +23,11 @@
 
 ### Android / Termux
 
-Если SillyTavern работает на телефоне в Termux, остановите её сочетанием **Ctrl+C**, затем вставьте команды ниже в Termux из любой папки. Они скачивают и устанавливают **v0.5.0**:
+Если SillyTavern работает на телефоне в Termux, остановите её сочетанием **Ctrl+C**, затем вставьте команды ниже в Termux из любой папки. Они скачивают и устанавливают **v0.5.1**:
 
 ```bash
 pkg install curl unzip &&
-curl -fL "https://github.com/AmadeusTwi/sillytavern-qol-pack-releases/releases/download/v0.5.0/SillyTavern-QoL-Pack-0.5.0.zip" -o "$HOME/qol-pack.zip" &&
+curl -fL "https://github.com/AmadeusTwi/sillytavern-qol-pack-releases/releases/download/v0.5.1/SillyTavern-QoL-Pack-0.5.1.zip" -o "$HOME/qol-pack.zip" &&
 unzip -o "$HOME/qol-pack.zip" -d "$HOME/qol-pack-installer" &&
 node "$HOME/qol-pack-installer/SillyTavern-QoL-Pack/resources/bin/install.mjs"
 ```
