@@ -2,7 +2,7 @@
 
 English · [Русский](README.ru.md)
 
-Small quality-of-life improvements for SillyTavern. The first module shows the remaining budget of your saved OpenRouter key.
+Small quality-of-life improvements for SillyTavern: a saved-key budget widget and model identification beside OpenRouter replies.
 
 [**Download the latest release**](https://github.com/AmadeusTwi/sillytavern-qol-pack-releases/releases/latest)
 
@@ -18,6 +18,16 @@ Run the installer on the computer hosting SillyTavern. Requires Node.js 20.12+ a
 Select OpenRouter and an active saved key. A key icon appears beside **API Connections**. It opens a compact budget widget. The interface follows SillyTavern’s language: Russian or English as the fallback.
 
 <img width="614" height="468" alt="CleanShot 2026-11-09 at 02 47 17@2x" src="https://github.com/user-attachments/assets/30e6dcca-eb1e-4b27-ad20-10558d42ae20" />
+
+## Model identification
+
+OpenRouter replies show the OpenRouter icon alongside the model family’s native SillyTavern logo when available: Claude, OpenAI, DeepSeek, Z.AI, Google and others.
+
+Tap or click the icon group to reveal the readable model name from the **API Connections** model list. Tap again, click elsewhere or press Escape to close it. Enter and Space also work. Long names wrap on narrow screens instead of being clipped.
+
+Each reply and selected swipe uses its own recorded model metadata. Changing your current provider or model does not relabel old replies. If the model is missing from the loaded catalog, a readable form of its saved identifier is used. If no model was recorded, the label says so.
+
+The module respects **User Settings → Model Icons** and document mode. It does not change chat data or make additional OpenRouter requests. Mobile layout and taps were checked in browser emulation; touch feel still needs a check on a physical phone.
 
 ## Updates
 
