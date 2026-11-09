@@ -25,7 +25,7 @@ The widget checks GitHub Releases automatically, with a six-hour cache. An indic
 
 Open **About & updates → Install v…**, then restart SillyTavern and reload the page. Both the UI and server plugin update together. The same section offers a rollback to the previous installation. Installation and rollback require a SillyTavern administrator.
 
-Existing installations, including version 0.4.0, can update directly from the widget. Compatibility downloads in Releases are used automatically by older updaters; for a fresh installation, choose **SillyTavern-QoL-Pack-&lt;version&gt;.zip**.
+Versions 0.4.1 and 0.4.2 can update to 0.4.3 directly from the widget. The compatibility download for 0.4.0 is retained only in the transition release 0.4.2. If you are still on 0.4.0 and missed that transition, run the latest installer once.
 
 ## Repository
 
