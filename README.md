@@ -11,6 +11,8 @@ Small quality-of-life improvements for SillyTavern.
 - **OpenRouter key budget:** See your saved key’s remaining budget and reset time. Open the widget using the key beside **API Connections**.
 - **Model badges:** Identify the model family beside each OpenRouter reply. Tap the icons to reveal the model’s full name.
 
+Model display preferences: **Extensions → SillyTavern QoL Pack → Settings**.
+
 ## Install
 
 Run the installer on the device hosting SillyTavern. Requires SillyTavern 1.19+ and Node.js 20.12+.
@@ -24,11 +26,11 @@ Select OpenRouter and an active saved key to show the budget icon. The interface
 
 ### Android / Termux
 
-Stop SillyTavern with **Ctrl+C**. Paste these commands into Termux from any folder to install **v0.5.2**:
+Stop SillyTavern with **Ctrl+C**. Paste these commands into Termux from any folder to install **v0.5.3**:
 
 ```bash
 pkg install curl unzip &&
-curl -fL "https://github.com/AmadeusTwi/sillytavern-qol-pack-releases/releases/download/v0.5.2/SillyTavern-QoL-Pack-0.5.2.zip" -o "$HOME/qol-pack.zip" &&
+curl -fL "https://github.com/AmadeusTwi/sillytavern-qol-pack-releases/releases/download/v0.5.3/SillyTavern-QoL-Pack-0.5.3.zip" -o "$HOME/qol-pack.zip" &&
 unzip -o "$HOME/qol-pack.zip" -d "$HOME/qol-pack-installer" &&
 node "$HOME/qol-pack-installer/SillyTavern-QoL-Pack/resources/bin/install.mjs"
 ```

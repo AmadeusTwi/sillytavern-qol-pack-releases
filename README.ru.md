@@ -11,6 +11,8 @@
 - **Лимит OpenRouter-ключа:** Остаток бюджета сохранённого ключа и время до сброса. Виджет открывается ключиком рядом с **API Connections**.
 - **Модель рядом с ответом:** Иконка семейства модели у ответов OpenRouter. Нажмите на иконки, чтобы увидеть полное название модели.
 
+Настройки отображения моделей: **Extensions → SillyTavern QoL Pack → Настройки**.
+
 ## Установка
 
 Запускайте установщик на устройстве, где работает SillyTavern. Нужны SillyTavern 1.19+ и Node.js 20.12+.
@@ -24,11 +26,11 @@
 
 ### Android / Termux
 
-Остановите SillyTavern сочетанием **Ctrl+C**. Вставьте команды ниже в Termux из любой папки для установки **v0.5.2**:
+Остановите SillyTavern сочетанием **Ctrl+C**. Вставьте команды ниже в Termux из любой папки для установки **v0.5.3**:
 
 ```bash
 pkg install curl unzip &&
-curl -fL "https://github.com/AmadeusTwi/sillytavern-qol-pack-releases/releases/download/v0.5.2/SillyTavern-QoL-Pack-0.5.2.zip" -o "$HOME/qol-pack.zip" &&
+curl -fL "https://github.com/AmadeusTwi/sillytavern-qol-pack-releases/releases/download/v0.5.3/SillyTavern-QoL-Pack-0.5.3.zip" -o "$HOME/qol-pack.zip" &&
 unzip -o "$HOME/qol-pack.zip" -d "$HOME/qol-pack-installer" &&
 node "$HOME/qol-pack-installer/SillyTavern-QoL-Pack/resources/bin/install.mjs"
 ```
