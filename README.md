@@ -13,11 +13,26 @@ Small quality-of-life improvements for SillyTavern: a saved-key budget widget an
 3. Choose your SillyTavern folder and confirm installation.
 4. Restart SillyTavern and reload the browser page.
 
-Run the installer on the computer hosting SillyTavern. Requires Node.js 20.12+ and SillyTavern 1.19+.
+Run the installer on the computer or phone hosting SillyTavern. Requires Node.js 20.12+ and SillyTavern 1.19+. For Android, follow the Termux steps below.
 
 Select OpenRouter and an active saved key. A key icon appears beside **API Connections**. It opens a compact budget widget. The interface follows SillyTavern’s language: Russian or English as the fallback.
 
 <img width="614" height="468" alt="CleanShot 2026-11-09 at 02 47 17@2x" src="https://github.com/user-attachments/assets/30e6dcca-eb1e-4b27-ad20-10558d42ae20" />
+
+### Android / Termux
+
+If SillyTavern runs on your phone in Termux, stop it with **Ctrl+C**, then paste the following into Termux from any folder. These commands download and install **v0.5.0**:
+
+```bash
+pkg install curl unzip &&
+curl -fL "https://github.com/AmadeusTwi/sillytavern-qol-pack-releases/releases/download/v0.5.0/SillyTavern-QoL-Pack-0.5.0.zip" -o "$HOME/qol-pack.zip" &&
+unzip -o "$HOME/qol-pack.zip" -d "$HOME/qol-pack-installer" &&
+node "$HOME/qol-pack-installer/SillyTavern-QoL-Pack/resources/bin/install.mjs"
+```
+
+Choose your SillyTavern installation in the wizard and confirm. If it is not found, enter the folder you normally start SillyTavern from, usually `~/SillyTavern`. The installer sets up both components and enables server plugins automatically; your saved OpenRouter key stays in place.
+
+Start SillyTavern as usual and reload its browser page. After installation, use **About & updates** in the widget for newer versions. You can delete `~/qol-pack.zip` and `~/qol-pack-installer` once installation succeeds.
 
 ## Model identification
 
@@ -36,6 +51,14 @@ The widget checks GitHub Releases automatically, with a six-hour cache. An indic
 Open **About & updates → Install v…**, then restart SillyTavern and reload the page. Both the UI and server plugin update together. The same section offers a rollback to the previous installation. Installation and rollback require a SillyTavern administrator.
 
 Versions 0.4.1 and 0.4.2 can update to 0.4.3 directly from the widget. The compatibility download for 0.4.0 is retained only in the transition release 0.4.2. If you are still on 0.4.0 and missed that transition, run the latest installer once.
+
+## Troubleshooting
+
+### Why does “Install extension” fail?
+
+SillyTavern’s **Install extension** dialog clones a Git repository containing a browser extension. This pack also needs a server plugin, so use the ZIP installer described above to install both components together.
+
+A link ending in `/releases/tag/v…` opens a release page, which Git cannot clone. Pasting it into that dialog produces `not valid: is this a git repository?`. The repository’s main URL also will not install the pack: this repository hosts documentation and release downloads.
 
 ## Repository
 
