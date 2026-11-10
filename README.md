@@ -8,7 +8,7 @@ Small quality-of-life improvements for SillyTavern.
 
 ## Features
 
-- **OpenRouter key budget:** See your saved key’s remaining budget and reset time. Open the widget using the key beside **API Connections**.
+- **OpenRouter key budget:** See your saved key’s remaining budget, reset time and what you spent today, and get a notice when the limit changes. Open the widget using the key beside **API Connections**.
 - **Model and reply cost:** Identify the model family beside each OpenRouter reply. Tap the icons to reveal the model’s full name, what the reply cost and which provider served it.
 
 Model display preferences: **Extensions → SillyTavern QoL Pack → Settings**.
