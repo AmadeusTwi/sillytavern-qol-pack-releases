@@ -45,6 +45,12 @@ Open **Extensions → SillyTavern QoL Pack** or **About & updates** in the key w
 
 **What’s new** shows only the releases you missed. **Changelog** opens the complete release history.
 
+## Removing the pack
+
+1. Open **Extensions → Manage extensions**, click the trash can on the **SillyTavern QoL Pack** row and tick **Also clean up extension data**.
+2. Delete the `plugins/openrouter-key-budget` folder inside your SillyTavern folder.
+3. Restart SillyTavern.
+
 ## Troubleshooting
 
 ### “Install extension” fails

@@ -45,6 +45,12 @@ node "$HOME/qol-pack-installer/SillyTavern-QoL-Pack/resources/bin/install.mjs"
 
 При наличии обновления **«Что нового»** показывает только пропущенные релизы. **«История изменений»** открывает полную страницу релизов на GitHub.
 
+## Удаление пакета
+
+1. Откройте **Extensions → Manage extensions**, нажмите корзину в строке **SillyTavern QoL Pack** и отметьте **Also clean up extension data**.
+2. Удалите папку `plugins/openrouter-key-budget` в папке SillyTavern.
+3. Перезапустите SillyTavern.
+
 ## Решение проблем
 
 ### Не работает «Install extension»
