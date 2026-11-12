@@ -9,7 +9,8 @@ Small quality-of-life improvements for SillyTavern.
 ## Features
 
 - **OpenRouter key budget:** See your saved key’s remaining budget, reset time and what you spent today, and get a notice when the limit changes or runs low. Open the widget using the key beside **API Connections**.
-- **Model and reply cost:** Identify the model family beside each OpenRouter reply. Tap the icons to reveal the model’s full name, what the reply cost and which provider served it.
+- **Model and reply cost:** Identify the model family beside each OpenRouter reply. Tap the icons to reveal the model’s full name, what the reply cost, which provider served it and what caching saved.
+- **Prompt caching:** Pay about a tenth of the normal price for the part of each prompt that repeats, with Claude and Qwen models through OpenRouter. Off by default; see [Prompt caching](#prompt-caching). The key widget’s Details show what caching saved in a **Saved by caching** row.
 
 Preferences: **Extensions → SillyTavern QoL Pack → Settings**.
 
@@ -26,11 +27,12 @@ Select OpenRouter and an active saved key to show the budget icon. The interface
 
 ### Android / Termux
 
-Stop SillyTavern with **Ctrl+C**. Paste these commands into Termux from any folder to install **v0.5.3**:
+Stop SillyTavern with **Ctrl+C**. Paste these commands into Termux from any folder to install the latest release:
 
 ```bash
 pkg install curl unzip &&
-curl -fL "https://github.com/AmadeusTwi/sillytavern-qol-pack-releases/releases/download/v0.5.3/SillyTavern-QoL-Pack-0.5.3.zip" -o "$HOME/qol-pack.zip" &&
+zip_url="$(curl -fsSL https://api.github.com/repos/AmadeusTwi/sillytavern-qol-pack-releases/releases/latest | grep -o 'https://[^"]*\.zip"' | head -1 | tr -d '"')" &&
+curl -fL "$zip_url" -o "$HOME/qol-pack.zip" &&
 unzip -o "$HOME/qol-pack.zip" -d "$HOME/qol-pack-installer" &&
 node "$HOME/qol-pack-installer/SillyTavern-QoL-Pack/resources/bin/install.mjs"
 ```
@@ -44,6 +46,25 @@ After installation, you can delete `~/qol-pack.zip` and `~/qol-pack-installer`.
 Open **Extensions → SillyTavern QoL Pack** or **About & updates** in the key widget to install updates or roll back. Restart SillyTavern and reload the page after installation. Installing updates and rolling back require a SillyTavern administrator.
 
 **What’s new** shows only the releases you missed. **Changelog** opens the complete release history.
+
+## Prompt caching
+
+Tick **Prompt caching** in **Extensions → SillyTavern QoL Pack → Settings** to use it with Claude and Qwen models through OpenRouter. The pack marks the part of each chat request that repeats the previous request, and the model charges that part at about a tenth of the normal price for an hour after it was last used. Saving it costs more than the normal price once (twice for Claude, 1.25 times for Qwen), so the pack saves only what it expects to be read often enough, and pauses caching in a chat that costs more with it than without it.
+
+The line under the checkbox says whether caching is active, and why not when it is not. Some models cache by themselves, without markers (OpenAI, Gemini, DeepSeek and others): the line says that the model takes no cache markers, and what its own caching saved still shows beside the reply and in the **Saved by caching** row.
+
+### What reduces the saving
+
+Only the start of a prompt that is identical to the previous request’s is read from the cache. A change near the top makes everything after it cost the normal price again. When caching cannot help in the current chat, the pack says so once per session.
+
+- **Dice and random macros before the chat history:** A `{{roll}}` or `{{random}}` in a preset prompt before the chat history changes on every request, so nothing after it repeats. Under Prompt Post-Processing “Semi-strict” the system prompts before the history usually merge into one message with the macro, and then nothing is cached at all. Move the macro to a prompt after the chat history, or switch that prompt off. Freaky Frankenstein 5.4 moved its dice to the end, so update an older Freaky Frankenstein 5; in Lucid Loom v3.3, switch off “Chaos Modifier (NSFW)”.
+- **Lorebook entries that switch on by keyword near the top:** An entry placed before the character or the chat history comes and goes with its keywords, and each time the history after it costs the normal price. Place such entries at a depth (@D), so they change only the last messages, or make them **Sticky**, so they stay active for a number of messages.
+- **Vector Storage for chats:** With **Vector Storage → Enabled for chat messages** on, Vector Storage rebuilds a block of past messages near the top on every request and takes those messages out of the history, so almost nothing repeats. The status line names it. Switch it off where you want caching to save.
+- **Frequent summaries:** With **Summarize** placed before or after the main prompt, each new summary changes the prompt near the top once. Summarize less often, for example every 20 messages instead of every 10. Memory Books costs one turn when it creates a memory and hides the summarised messages; its memories are lorebook entries near the top, so a memory that switches on by keyword is the lorebook case above, unless memories are made constant entries.
+- **Gaps of more than an hour:** A saved prompt lasts an hour after it was last used. After a longer gap, the next message pays to save it again.
+- **A chat that has outgrown its context size:** Once the chat no longer fits the context size, SillyTavern leaves out its oldest messages, so the history changes at its start on every turn and only the prompts before it are cached. Raise the context size if the model allows it, hide or summarize old messages, or continue in a new chat.
+
+A swipe or a regenerate reads the whole request from the cache. An edit, a deleted or hidden message costs one turn at the normal price, then the chat repeats again.
 
 ## Removing the pack
 
