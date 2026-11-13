@@ -73,6 +73,10 @@ Tick **Cache long chats** under **Prompt caching** for chats that no longer fit 
 
 The model reads less of the oldest history in exchange. Right after a chunk it reads about 70% of the history SillyTavern would send, never less than half; turn by turn that grows back to all of it before the next chunk, about 85% on average (simulated at context sizes of 32k and more). At a 50k context such a chat costs about a fifth of what it costs without caching, where prompt caching alone saves little (simulated). Measured in a real chat at a 32k context on Claude Haiku 5.5: a full cycle cost about 12% of what the same turns cost without caching, and the model read 70% of the history right after a chunk and 84% on average.
 
+Leave it off when old details matter more than the price, or when the chat is cheap anyway, at a small context size or on a cheap model. The same list opens under the checkbox as **When to leave it off**.
+
+With **Summarize**, set its **Prompt builder** to **Raw, blocking** or **Raw, non-blocking**: they summarize the chat itself, so every message is summarized whatever the pack leaves out. **Classic, blocking** summarizes the prompt as it is sent, so a message left out in a chunk before the next summary is never summarized. With it, keep **Update every** at about half the messages that fit the context or fewer, and do not use the automatic interval, which counts all of them.
+
 Nothing in the chat is hidden, deleted or changed: the messages left out are only not sent, as SillyTavern already does with messages that do not fit. The dashed line in the chat marks the first message the model reads. Untick the box, and the next request is again the one SillyTavern builds.
 
 With it on, a larger context size is affordable: a long chat at a 32k context costs about what the same chat costs at 8k without caching, and the model reads about five times as much of its history (simulated). A very small context size saves less: such a chat is cheap already, and a chunk has to take up to half of the history to last ten replies.
