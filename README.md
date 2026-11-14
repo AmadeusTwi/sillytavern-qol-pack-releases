@@ -10,6 +10,7 @@ Small quality-of-life improvements for SillyTavern.
 
 - **OpenRouter key budget:** See your saved key’s remaining budget, reset time and what you spent today, and get a notice when the limit changes or runs low. Open the widget using the key beside **API Connections**.
 - **Model and reply cost:** Identify the model family beside each OpenRouter reply. Tap the icons to reveal the model’s full name, what the reply cost, which provider served it and what caching saved.
+- **Quick model picker:** Switch the OpenRouter model in two taps from the button beside Send: your starred models first, then the recent ones, then a search over every model. See [Quick model picker](#quick-model-picker).
 - **Prompt caching:** Pay about a tenth of the normal price for the part of each prompt that repeats, with Claude and Qwen models through OpenRouter. Off by default; see [Prompt caching](#prompt-caching). The key widget’s Details show what caching saved in a **Saved by caching** row.
 
 Preferences: **Extensions → SillyTavern QoL Pack → Settings**.
@@ -46,6 +47,16 @@ After installation, you can delete `~/qol-pack.zip` and `~/qol-pack-installer`.
 Open **Extensions → SillyTavern QoL Pack** or **About & updates** in the key widget to install updates or roll back. Restart SillyTavern and reload the page after installation. Installing updates and rolling back require a SillyTavern administrator.
 
 **What’s new** shows only the releases you missed. **Changelog** opens the complete release history.
+
+## Quick model picker
+
+With OpenRouter under Chat Completion, a button with the current model’s logo sits left of Send, with a short name on wider screens. Tap it to open the list: the current model on top, then your **Starred** models, the **Recent** ones (the last five that wrote a reply in your chats) and **All models** by vendor, with each model’s context size and price. Type in the search field to find any model, and tap a row to switch to it. On a phone the list opens as a sheet from the bottom; drag it down or tap outside it to close it.
+
+Tap the star beside a model to keep it under **Starred**. Stars and recent models follow your SillyTavern user to every device. A starred model that OpenRouter no longer lists stays greyed out until you remove its star.
+
+The picker sets the same model as the dropdown in **API Connections**, so connection profiles and presets work as before, and the button always shows the model SillyTavern uses. To hide the button, clear **Quick model picker beside Send** in **Extensions → SillyTavern QoL Pack → Settings**.
+
+When you switch to a model with a smaller context, SillyTavern lowers the context size to that model’s limit and never raises it back. The pack remembers the context size you set and restores it after any model switch, from the picker, the dropdown, `/model` or a connection profile, as far as the current model allows. A size you set by hand, or a preset sets, becomes the size it restores.
 
 ## Prompt caching
 
