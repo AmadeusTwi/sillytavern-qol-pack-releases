@@ -56,7 +56,7 @@ Tap the star beside a model to keep it under **Starred**. Stars and recent model
 
 The picker sets the same model as the dropdown in **API Connections**, so connection profiles and presets work as before, and the button always shows the model SillyTavern uses. To hide the button, clear **Quick model picker beside Send** in **Extensions → SillyTavern QoL Pack → Settings**.
 
-When you switch to a model with a smaller context, SillyTavern lowers the context size to that model’s limit and never raises it back. The pack remembers the context size you set and restores it after any model switch, from the picker, the dropdown, `/model` or a connection profile, as far as the current model allows. A size you set by hand, or a preset sets, becomes the size it restores.
+When you switch to a model with a smaller context, SillyTavern lowers the context size to that model’s limit and never raises it back. It does the same to the temperature: a switch to a Claude model lowers it to 1.0, and it stays 1.0 on the next model. The pack remembers the context size and the temperature you set and restores them after any model switch, from the picker, the dropdown, `/model` or a connection profile, as far as the current model allows. A value you set by hand, or a preset sets, becomes the one it restores. This is always on and has no setting.
 
 ## Prompt caching
 
