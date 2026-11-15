@@ -59,11 +59,15 @@ The picker sets the same model as the dropdown in **API Connections**, so connec
 
 When you switch to a model with a smaller context, SillyTavern lowers the context size to that model’s limit and never raises it back. It does the same to the temperature: a switch to a Claude model lowers it to 1.0, and it stays 1.0 on the next model. The pack remembers the context size and the temperature you set and restores them after any model switch, from the picker, the dropdown, `/model` or a connection profile, as far as the current model allows. A value you set by hand, or a preset sets, becomes the one it restores. This is always on and has no setting.
 
+Your **Model Providers** selection, including its priority order, and **Allow fallback providers** choice in **API Connections** are remembered separately for each OpenRouter model. Switch through either list, `/model` or a connection profile, and that model’s choices return. A model you have not configured leaves the provider choice to OpenRouter; clearing the selection is remembered too. Your current selection is kept when the feature first loads. A connection-bound preset restores its saved provider choices, including an empty list, and replaces the remembered choice for its model. Most saved presets contain these choices even if you never changed them. A connection profile that loads such a preset restores that snapshot; without it, profiles share the model’s latest choice.
+
 ## Swipe with another model
 
 With OpenRouter under Chat Completion, a swipe or a Regenerate of the last reply shows a strip at the top of the new reply, with your starred models and then the recent ones. While the reply is written it reads “Sonnet 5.5 is writing… **Instead:** …”: tap a model to stop it and write the same swipe with that model. Once it has finished, **Again with:** makes one more swipe with the model you tap and keeps the finished one. Models that don’t fit on one line are under “+N”. The strip goes away as soon as you leave that swipe or send a message, and a new reply doesn’t get one.
 
 Your selected model, the dropdown in **API Connections** and your settings don’t change: only that one swipe is written by the other model. Its model badge, reply cost and spending name that model, and it joins your recent models. Continue on such a swipe goes to the model that wrote it, unless you have selected another model since. If the other model has a smaller context, that swipe gets only as much context as the model allows. With **Prompt caching**, a swipe with another model only reads what that model already saved in the chat; once the model has written in the chat within the hour, it also writes, so the next swipe with it reads.
+
+A swipe with another model and its Continue use that model’s remembered providers for the request. Your selected model’s provider controls stay as they are.
 
 To hide the strip, clear **Swipe with another model while swiping** in **Extensions → SillyTavern QoL Pack → Settings**.
 
