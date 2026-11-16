@@ -92,6 +92,14 @@ Only the start of a prompt that is identical to the previous request’s is read
 
 A swipe or a regenerate reads the whole request from the cache. An edit, a deleted or hidden message costs one turn at the normal price, then the chat repeats again.
 
+### Caching diagnostics
+
+Open **Caching diagnostics** in the pack’s **Settings**, or **Open diagnostics** in the caching notice. A snapshot and recent request trace are available on desktop and phones without developer tools. They show why a request was left unmarked, the expected reads/writes, and the reads/writes and cost OpenRouter actually reported. Missing usage is unknown, not zero; a notice about little repetition does not itself mean caching lost money.
+
+For changing prompts, choose **Capture next two requests**, close the window and send your own two requests. The pack generates nothing automatically. Return to diagnostics and choose **Refresh snapshot** to review the comparison, then use **Copy JSON** or **Download JSON** and share the file manually with support. You can cancel capture. If copying/downloading fails on your phone, select the JSON and copy it manually.
+
+Everything stays in this page; nothing is uploaded. The default report has no prompt text, character/chat names or lorebook contents, and source labels are local to the report. Model/provider and request IDs remain. Source attribution can be unknown, and the report says when it is incomplete or truncated. **Review excerpts** opens the preview and enables **Include reviewed changed-text excerpts**, which adds only the displayed, bounded before/after fragments: these can contain private material, so review them before sharing. A report with excerpts is not anonymous. Large requests still compare fingerprints and sizes when raw text cannot be retained. Different group members are incomparable. Full prompt captures are released after completion or cancellation; clearing diagnostics also removes the excerpt candidates. Reloading the page clears the report.
+
 ### Cache long chats
 
 Tick **Cache long chats** under **Prompt caching** for chats that no longer fit their context size. SillyTavern leaves out the oldest messages of such a chat one or two at a time, so the history starts at a different message on every turn and only the prompts before it are read from the cache. With the box ticked, the pack leaves out a larger chunk of the oldest messages at once, and the following turns start the history at the same message until the next chunk is due, so the whole history between two chunks is read from the cache. In a chat that is already too long, the first chunk is left out on the next request. It is off by default.
